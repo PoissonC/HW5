@@ -8,7 +8,7 @@
 // Adjust pin name to your board specification.
 // You can use LED1/LED2/LED3/LED4 if any is connected to PWM capable pin,
 // or use any PWM capable pin, and see generated signal on logical analyzer.
-PwmOut led(PWM_OUT);
+PwmOut Motor(PWM_OUT);
 
 int main()
 {
@@ -17,11 +17,11 @@ int main()
     // led.write(0.50f);
     while(1){
         for(float i=0.8;i>=0.3;i-=0.05){
-            led.period(0.05f);      // 4 second period
-            led.write(i);      // 50% duty cycle, relative to period
+            Motor.period(0.05f);      
+            Motor.write(i);      
             wait_us(50000); 
         }
-        led.write(0);
+        Motor.write(0);
         wait_us(50000); 
     }
     //led = 0.5f;          // shorthand for led.write()
